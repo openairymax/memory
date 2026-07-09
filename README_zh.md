@@ -13,7 +13,7 @@
 
 ## 概述
 
-**agentrt-linux 内存管理（AirymaxOS Memory）**（`airymaxos-memory`）是 agentrt-linux（AirymaxOS）（智能体操作系统）的内存管理子系统。它将 MemoryRovol 卷载演进引擎引入内核态，集成 CXL 与 PMEM 实现异构内存分层，并采用 MGLRU 2.0 多代 LRU 进行 AI 负载感知的页面回收。
+**agentrt-linux 内存管理（AirymaxOS Memory）**（`airymaxos-memory`）是 agentrt-linux（AirymaxOS）（智能体操作系统）的内存管理子系统。它将 MemoryRovol 卷载演进引擎引入内核态，集成 CXL 与 PMEM 实现异构内存分层，并采用 MGLRU 多代 LRU 进行 AI 负载感知的页面回收。
 
 在 agentrt-linux 0.1.1 中，本仓库为**文档体系完成**，包含设计文档、参考发行版规范及架构草案。实际的内核与 OS 开发在 1.0.1 版本进行。
 
@@ -22,7 +22,7 @@
 - **MemoryRovol 内核态** — 直接在内核内存区域上运行的卷载与演进引擎
 - **CXL（Compute Express Link）** 实现一致性、分层、可分解的内存池
 - **PMEM（持久内存）** 提供低延迟持久内存与快速重启
-- **MGLRU 2.0** 多代 LRU 实现 AI 负载感知的页面回收
+- **MGLRU 多代 LRU** 实现 AI 负载感知的页面回收
 - **HeapStore** 内核驻留堆记账，与 agentrt 运行时共享
 
 ### 与 Airymax heapstore + memoryrovol 的关系

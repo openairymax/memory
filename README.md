@@ -13,7 +13,7 @@
 
 ## Overview
 
-The **agentrt-linux Memory (AirymaxOS Memory)** (`airymaxos-memory`) is the memory management subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It brings the MemoryRovol rolling-and-evolution engine into the kernel, integrates CXL and PMEM for heterogeneous memory tiering, and adopts the MGLRU 2.0 multi-generational LRU for AI workload-aware page reclaim.
+The **agentrt-linux Memory (AirymaxOS Memory)** (`airymaxos-memory`) is the memory management subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It brings the MemoryRovol rolling-and-evolution engine into the kernel, integrates CXL and PMEM for heterogeneous memory tiering, and adopts the MGLRU (multi-generational LRU) for AI workload-aware page reclaim.
 
 In agentrt-linux 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
 
@@ -22,7 +22,7 @@ In agentrt-linux 0.1.1, this repository is **documentation complete** (文档体
 - **MemoryRovol in-kernel mode** — rolling & evolution engine operating directly on kernel memory regions
 - **CXL (Compute Express Link)** for coherent, tiered, disaggregated memory pools
 - **PMEM (persistent memory)** for low-latency durable memory and fast restart
-- **MGLRU 2.0** multi-generational LRU for AI workload-aware page reclaim
+- **MGLRU** (multi-generational LRU) for AI workload-aware page reclaim
 - **HeapStore** kernel-resident heap accounting shared with the agentrt runtime
 
 ### Relationship with Airymax heapstore + memoryrovol
