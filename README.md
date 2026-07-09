@@ -1,11 +1,11 @@
 **Language:** English | [简体中文](README_zh.md)
 
-# agentrt-liunx Memory (AirymaxOS Memory)
+# agentrt-linux Memory (AirymaxOS Memory)
 
 [![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/memory)
 [![License](https://img.shields.io/badge/license-AGPL--3.0+Apache--2.0-4a90d9)](LICENSE)
 
-> Memory subsystem of [agentrt-liunx（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
+> Memory subsystem of [agentrt-linux（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
 > One of the leaf repositories aggregated by the [agentrt-linux](https://atomgit.com/openairymax/agentrt-linux) management repo.
 > Reuses and extends the Airymax `heapstore` and `memoryrovol` modules for OS-level memory management.
 
@@ -13,9 +13,9 @@
 
 ## Overview
 
-The **agentrt-liunx Memory (AirymaxOS Memory)** (`airymaxos-memory`) is the memory management subsystem of agentrt-liunx（AirymaxOS）, the AI Agent Operating System. It brings the MemoryRovol rolling-and-evolution engine into the kernel, integrates CXL and PMEM for heterogeneous memory tiering, and adopts the MGLRU 2.0 multi-generational LRU for AI workload-aware page reclaim.
+The **agentrt-linux Memory (AirymaxOS Memory)** (`airymaxos-memory`) is the memory management subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It brings the MemoryRovol rolling-and-evolution engine into the kernel, integrates CXL and PMEM for heterogeneous memory tiering, and adopts the MGLRU 2.0 multi-generational LRU for AI workload-aware page reclaim.
 
-In agentrt-liunx 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
+In agentrt-linux 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
 
 ### Core Technologies
 
@@ -27,7 +27,7 @@ In agentrt-liunx 0.1.1, this repository is **documentation complete** (文档体
 
 ### Relationship with Airymax heapstore + memoryrovol
 
-The agentrt-liunx Memory (AirymaxOS Memory) reuses and extends the `heapstore` and `memoryrovol` modules from the Airymax runtime platform. The heap accounting, rolling journal and evolution API are shared between the user-space runtime (agentrt) and the OS-level memory layer (agentrt-liunx（AirymaxOS）), ensuring architectural homology with no adaptation layer.
+The agentrt-linux Memory (AirymaxOS Memory) reuses and extends the `heapstore` and `memoryrovol` modules from the Airymax runtime platform. The heap accounting, rolling journal and evolution API are shared between the user-space runtime (agentrt) and the OS-level memory layer (agentrt-linux（AirymaxOS）), ensuring architectural homology with no adaptation layer.
 
 ## Repository Structure (0.1.1 Documentation Complete)
 
@@ -46,14 +46,14 @@ Design documents and reference distribution specifications are maintained in the
 
 ### Upstream
 
-- **agentrt-liunx Kernel (AirymaxOS Kernel)** — provides the memory management APIs, MGLRU hooks and PMEM/CXL drivers
+- **agentrt-linux Kernel (AirymaxOS Kernel)** — provides the memory management APIs, MGLRU hooks and PMEM/CXL drivers
 - **Airymax heapstore + memoryrovol** — provides the heap and rolling-evolution engine that are reused and extended
 - **Euler 24.03 LTS / 26.03** — reference distribution for memory and CXL standards
 
 ### Downstream
 
-- **agentrt-liunx Cognition（AirymaxOS Cognition）** — cognition engine that relies on tiered memory for LLM serving and KV-cache
-- **agentrt-liunx Services (AirymaxOS Services)** — service layer that allocates from the shared heap and rolling regions
+- **agentrt-linux Cognition（AirymaxOS Cognition）** — cognition engine that relies on tiered memory for LLM serving and KV-cache
+- **agentrt-linux Services (AirymaxOS Services)** — service layer that allocates from the shared heap and rolling regions
 
 ## Branch Strategy
 
