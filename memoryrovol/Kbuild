@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# memoryrovol 子目录 Kbuild
+# MemoryRovol L1 hot record 分配/释放（slab cache）
+#
+# 模块名：airy_mr_l1.ko
+
+obj-m := airy_mr_l1.o
+
+airy_mr_l1-objs := mr_l1.o
+
+# [SC] 头文件引用（OS-IRON-014 / 决策 G1）
+# 唯一物理宿主：kernel/include/uapi/linux/airymax/
+# 禁止物理副本，通过 -I 引用
+ccflags-y += -I$(src)/../kernel/include
+ccflags-y += -I$(src)/../kernel/include/uapi/linux
+ccflags-y += -Werror
