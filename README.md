@@ -30,7 +30,7 @@ workload-aware page reclaim.
 - **MGLRU** (multi-generational LRU) for AI workload-aware page reclaim.
 - **HeapStore** kernel-resident heap accounting shared with the agentrt runtime.
 - **`[SC]` contribution** — owns the `memory_types.h` shared-contract header
-  (single physical source under `kernel/include/airymax/`).
+  (single physical source under `kernel/include/uapi/linux/airymax/`).
 
 ## Relationship with Airymax `memoryrovol` + `heapstore`
 
@@ -62,7 +62,7 @@ Memory changes are governed by management-repository workflows (each ≤ 2 jobs)
 | Workflow | Jobs | Applies to memory via |
 |----------|------|------------------------|
 | `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir; aggregates this repo's CI status |
-| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` in the `[SC]` 6+2 set; triggers agentrt mirror PR on changes |
+| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` in the `[SC]` 10 core headers; triggers agentrt mirror PR on changes |
 | `nightly.yml` | `nightly-test-suite` (formal verification of `mm/share_pool.c`; 72h soak for memory-leak / refcount drift) + `nightly-revert-or-budget` | Nightly cron |
 | `release.yml` | `build-and-sign` (SBOM scan of `memory/`) + `publish-release` | Release tag |
 
