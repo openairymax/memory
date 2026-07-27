@@ -27,7 +27,7 @@ memory/.github/
 | Workflow | Jobs | Relevance to memory |
 |----------|------|----------------------|
 | `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir exists; aggregates this repo's CI status |
-| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` (`[SC]` 6+2 set); creates agentrt mirror PR on changes |
+| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` (`[SC]` 10 core headers); creates agentrt mirror PR on changes |
 | `nightly.yml` | `nightly-test-suite` + `nightly-revert-or-budget` | seL4-style formal verification on `mm/share_pool.c`; 72h soak detects memory leaks / refcount drift; chaos (mem hotremove) |
 | `release.yml` | `build-and-sign` + `publish-release` | `syft memory/` SBOM; signed release artifacts |
 
@@ -35,7 +35,7 @@ memory/.github/
 
 - Add leaf-local workflows for MemoryRovol L1–L4 tier tests, CXL/PMEM driver
   coverage, and MGLRU reclaim tests; keep each workflow ≤ 2 jobs.
-- `[SC]` header `memory_types.h` lives at `kernel/include/airymax/memory_types.h`
+- `[SC]` header `memory_types.h` lives at `kernel/include/uapi/linux/airymax/memory_types.h`
   — single physical source, no duplicates (OS-IRON-014).
 - Memory APIs use the `airy_*` prefix.
 
