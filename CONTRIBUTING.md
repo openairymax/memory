@@ -23,7 +23,7 @@ memory 子仓负责 AirymaxOS 的全部记忆管理功能，包括：
 
 ### IRON-9 主层
 
-- `[IND]`：全部组件均为 agentrt-linux 专属实现
+- `[IND]`：全部组件均为 agent-linux 专属实现
 
 ## 2. 开发环境要求
 
