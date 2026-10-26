@@ -1,7 +1,7 @@
 # `.github/` — memory Leaf Repository Automation
 
 > GitHub automation directory for the **memory** leaf repository of
-> [agentrt-linux (AirymaxOS)](https://atomgit.com/openairymax/agentrt-linux).
+> [agent-linux (AirymaxOS)](https://atomgit.com/openairymax/agent-linux).
 
 Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 
@@ -26,8 +26,8 @@ memory/.github/
 
 | Workflow | Jobs | Relevance to memory |
 |----------|------|----------------------|
-| `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir exists; aggregates this repo's CI status |
-| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` (`[SC]` 10 core headers); creates agentrt mirror PR on changes |
+| `mgmt-verify.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir exists; aggregates this repo's CI status |
+| `sc-verify.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` (`[SC]` 10 core headers); creates agentrt mirror PR on changes |
 | `nightly.yml` | `nightly-test-suite` + `nightly-revert-or-budget` | seL4-style formal verification on `mm/share_pool.c`; 72h soak detects memory leaks / refcount drift; chaos (mem hotremove) |
 | `release.yml` | `build-and-sign` + `publish-release` | `syft memory/` SBOM; signed release artifacts |
 

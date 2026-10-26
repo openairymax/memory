@@ -61,8 +61,8 @@ Memory changes are governed by management-repository workflows (each ≤ 2 jobs)
 
 | Workflow | Jobs | Applies to memory via |
 |----------|------|------------------------|
-| `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir; aggregates this repo's CI status |
-| `sc-dual-ci.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` in the `[SC]` 10 core headers; triggers agentrt mirror PR on changes |
+| `mgmt-verify.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `memory/` submodule dir; aggregates this repo's CI status |
+| `sc-verify.yml` | `sc-validate` + `sc-trigger-and-await` | Guards `memory_types.h` in the `[SC]` 10 core headers; triggers agentrt mirror PR on changes |
 | `nightly.yml` | `nightly-test-suite` (formal verification of `mm/share_pool.c`; 72h soak for memory-leak / refcount drift) + `nightly-revert-or-budget` | Nightly cron |
 | `release.yml` | `build-and-sign` (SBOM scan of `memory/`) + `publish-release` | Release tag |
 
@@ -76,7 +76,7 @@ repository's own `.github/workflows/`.
 - **Commit prefix**: `memory:`.
 - **Code style**: C — tab-8, 80 cols (`.clang-format`); run `make format-check`.
 - **`[SC]` changes**: edits to `memory_types.h` require dual CI (agent-linux
-  `sc-dual-ci.yml` + agentrt mirror PR) and L1+L3 approval per OS-IRON-014.
+  `sc-verify.yml` + agentrt mirror PR) and L1+L3 approval per OS-IRON-014.
 - **Function prefix**: `airy_*` (not legacy `airymaxos_*`).
 
 ## Upstream & Downstream
